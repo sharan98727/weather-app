@@ -1,0 +1,31 @@
+.selectedday{
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0px 5px 4px 1px rgba(0, 0, 0, 0.75);
+    border-radius: 15px;
+    
+  
+}
+
+
+selectedday >img {
+    /* object-fit: contain; */
+    height: 250px;
+    width:800px
+}
+
+
+.firstrow{
+    display: flex;
+}
+
+.thirdrow{
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.fourthrow{
+    display: flex;
+    justify-content: space-between;
+}
+

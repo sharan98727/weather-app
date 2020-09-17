@@ -1,0 +1,10 @@
+.second__header{
+
+    margin-top: 20px;
+}
+
+.dialyweather{
+    display: flex;
+    justify-content: space-evenly;
+    
+}
