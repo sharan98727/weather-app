@@ -1,9 +1,23 @@
-.searchbar{
+.searchbar {
+    display: flex;
+    flex-direction: column;
+   
+    
+   
+}
 
-    display: grid;
-    place-items: center;
-    height:100vh;
+.searchsuggestions {
+    display: flex;
+    box-shadow: 0px 5px 4px 1px rgba(0, 0, 0, 0.75);
+    border-radius: 5px;
 
+}
+
+
+.searchbar > input{
+
+     /* flex: 1; */
+     /* width: 900px */
 }
 
 

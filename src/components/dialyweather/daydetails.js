@@ -2,14 +2,15 @@ import React from "react";
 import "./dialydetails.css";
 
 class Daydetails extends React.Component{
+   
     render(){
         return(
                  <div className="dialydetails">
                      <div>{this.props.day}</div>
-                     <div>{this.props.maxtemp} {this.props.mintemp}</div>
+                     <div className="maxmin"><b>{this.props.maxtemp}°</b> {this.props.mintemp}°</div>
                      <img src={this.props.tempimagesrc} 
                      alt=""
-                     width="20px"
+                     width="30px"
                      height="20px"
                      />
                      <div>{this.props.temptype}</div>

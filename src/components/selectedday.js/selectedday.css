@@ -7,6 +7,14 @@
   
 }
 
+.fromtop{
+    margin-top: 11px;
+}
+
+.heading{
+    margin-left: 12px;
+}
+
 
 selectedday >img {
     /* object-fit: contain; */
@@ -26,6 +34,7 @@ selectedday >img {
 
 .fourthrow{
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
 }
 
