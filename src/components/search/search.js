@@ -21,8 +21,8 @@ class Search extends React.Component{
        this.props.dispatch({
            type:"LATITUDE&LONGITUDE",
            payload:{
-               lat:{latitude},
-               lon:{longitude}
+               lat:latitude,
+               lon:longitude
            }
        })
    }

@@ -4,7 +4,7 @@ class Graph1 extends React.Component{
 
     state={
         hourdata:[],
-        // date:new Date,
+        date:new Date(),
     }
 
     componentDidMount(){
@@ -21,31 +21,68 @@ class Graph1 extends React.Component{
     }
 
     render(){
+        let {hourdata} = this.state;
+        var currenthour = this.state.date.getHours();
+        let requiredhours = hourdata.slice(currenthour,currenthour+8);
+        // console.log(requiredhours);
+        let graphdata = requiredhours.map((item)=>{
+            // console.log(item.temp)
+            return(
+                `${new Date(item.dt*1000).getHours()} ${item.temp}`
+            )
+        })
+            var graphxy = graphdata.join(" ");
+            console.log(graphxy);
+            
 
-        // var currenthour = this.state.date.getHours()
+            return(
+                <svg viewBox="0 0 500 100" class="chart">
+                        <polyline
+                            fill="none"
+                            stroke="#89C3E4"
+                            stroke-width="1"
+                            points="
+                            50,33.73
+                            100,32.87
+                            150,31.57
+                            200,31.06
+                            250,30.76
+                            300,30.55
+                            350,30.3
+                            400,30.9
+                            "/>
+                            <circle cx="100" cy="33.73" r="2" stroke="#89C3E4" fill="white" stroke-width="1"/>
+                            <circle cx="150" cy="32.87" r="2" stroke="#89C3E4" fill="white" stroke-width="1"/>
+                            <circle cx="200" cy="31.06" r="2" stroke="#89C3E4" fill="white" stroke-width="1"/>
+                            <circle cx="250" cy="30.76" r="2" stroke="#89C3E4" fill="white" stroke-width="1"/>
+                            <circle cx="300" cy="30.55" r="2" stroke="#89C3E4" fill="white" stroke-width="1"/>
+                            <circle cx="350" cy="30.3" r="2" stroke="#89C3E4" fill="white" stroke-width="1"/>
+                            <circle cx="400" cy="30.9" r="2" stroke="#89C3E4" fill="white" stroke-width="1"/>
+                            {/* <circle cx="60" cy="31.57" r="2" stroke="#89C3E4" fill="white" stroke-width="1"/> */}
+                        </svg>
+                // <svg viewBox="0 0 500 100" className="chart">
+                //     <polyline
+                //         fill="none"
+                //         stroke="#89C3E4"
+                //         stroke-width="1"
+                //         points= '
+                //         0, 120
+                //         20,60
+                //         40,80
+                //         60,20'
+                //         />
+                //         <circle cx="20" cy="60" r="2" stroke="#89C3E4" fill="white" stroke-width="1"/>
+                //         <circle cx="40" cy="80" r="2" stroke="#89C3E4" fill="white" stroke-width="1"/>
+                //         <circle cx="60" cy="20" r="2" stroke="#89C3E4" fill="white" stroke-width="1"/>
+                //     </svg>
+            
+        )}
+ 
 
-        // let graphdata = this.state.hourdata.slice(currenthour,currenthour+9)
-        // let graph = 
-
-
-//         <svg viewBox="0 0 500 100" class="chart">
-//   <polyline
-//      fill="none"
-//      stroke="#0074d9"
-//      stroke-width="3"
-//      points="    (50-temp)
-//        0,120
-//        20,60
-//        40,80
-//        60,20"/>
-//<circle cx="20" cy="60" r="2" stroke="#89C3E4" fill="white" stroke-width="1"/>
-// </svg>
-        return(
-            <div></div>
-        )
+      
     }
 
-}
+
 // X50--------------------------------
 // |
 // |

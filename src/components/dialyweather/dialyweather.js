@@ -16,16 +16,23 @@ class Dialyweather extends React.Component{
     }
 
    componentDidMount() {
-  
+
+    // const { latitude, longitude } = this.props;
+    // console.log('====>' + JSON.stringify(this.props));
+    // const url = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + latitude.latitude + '&lon=' + longitude.longitude  + '&units=metric&exclude=minutely&appid=f62e786f62a11ee5d2e5ae43cb6975fa';
+    
   fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${this.props.latitude}&lon=${this.props.longitude}&units=metric&
   exclude=minutely&appid=f62e786f62a11ee5d2e5ae43cb6975fa`)
+   
     .then(res => res.json())
     .then(data => this.setState({
       dialydata: data.daily,
     }, () => {
       console.log(this.state.dialydata);
     }))
-}
+
+         console.log(this.props.latitude);
+ }
 
 shouldComponentUpdate(prevprops){
     console.log(prevprops.latitude);
@@ -37,11 +44,12 @@ shouldComponentUpdate(prevprops){
     if(this.props.latitude!==prevprops.latitude)
     {
 
-        const { latitude, longitude } = this.props;
-        console.log('====>' + JSON.stringify(this.props));
-        const url = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + latitude.latitude + '&lon=' + longitude.longitude  + '&units=metric&exclude=minutely&appid=f62e786f62a11ee5d2e5ae43cb6975fa';
-        console.log('=====>' +  url);
-        fetch(url).then(res => res.json())
+        // const { latitude, longitude } = this.props;
+        // console.log('====>' + JSON.stringify(this.props));
+        // const url = 'https://api.openweathermap.org/data/2.5/onecall?lat=' + latitude.latitude + '&lon=' + longitude.longitude  + '&units=metric&exclude=minutely&appid=f62e786f62a11ee5d2e5ae43cb6975fa';
+        // console.log('=====>' +  url);
+        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${this.props.latitude}&lon=${this.props.longitude}&units=metric&
+  exclude=minutely&appid=f62e786f62a11ee5d2e5ae43cb6975fa`).then(res => res.json())
         .then(data => this.setState({
             dialydata: data.daily,
         }, () => {

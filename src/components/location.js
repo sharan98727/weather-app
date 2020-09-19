@@ -11,20 +11,22 @@ class Location extends React.Component{
             maximumAge: 0
           };
           
-          function success(pos) {
+           const success =(pos) => {
             var crd = pos.coords;
           
             console.log('Your current position is:');
             console.log(`Latitude : ${crd.latitude}`);
             console.log(`Longitude: ${crd.longitude}`);
             console.log(`More or less ${crd.accuracy} meters.`);
-            // this.props.dispatch({
-            //     type:"LATITUDE&LONGITUDE",
-            //     payload:{
-            //         lat:crd.latitude,
-            //         lon:crd.longitude,
-            //     }
-            // })
+            let lat = crd.latitude;
+            let lon = crd.longitude;
+            this.props.dispatch({
+                type:"LATITUDE&LONGITUDE",
+                payload:{
+                    lat:lat,
+                    lon:lon,
+                }
+            })
 
           }
           
@@ -37,13 +39,15 @@ class Location extends React.Component{
 
     render(){
         return(
-          <button onClick={this.locatePosition}>Find my location</button>
+          <button style={{display:"flex",visibility:"hidden"}} onClick={this.locatePosition()}>.</button>
         )
     }
 }
 
 const mapStateToProps = state =>{
+    return{
 
+    }
 }
 
 export default connect(mapStateToProps)(Location);

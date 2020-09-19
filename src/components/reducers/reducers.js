@@ -1,13 +1,13 @@
 
 const initialstate={
-    maxtemp:27,
-    selectediconurl:`http://openweathermap.org/img/wn/10d@2x.png`,
-    pressure:35,
-    humidity:42,
-    sunrise:730,
-    sunset:830,
-    lat:17,
-    lon:78,
+            maxtemp:27,
+            selectediconurl:`http://openweathermap.org/img/wn/10d@2x.png`,
+            pressure:35,
+            humidity:42,
+            sunrise:730,
+            sunset:830,
+            lat:17,
+            lon:78,
 } 
 
 
@@ -28,6 +28,7 @@ const weatherreducer = (state=initialstate,action) =>{
         }
 
         case "LATITUDE&LONGITUDE":{
+            console.log(action.payload.lat);
             return{
                 ...state,
                 lat:action.payload.lat,
@@ -47,4 +48,6 @@ const weatherreducer = (state=initialstate,action) =>{
 
 }
 export default weatherreducer;
+
+
 
