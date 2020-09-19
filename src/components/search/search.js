@@ -6,7 +6,8 @@ import { connect } from "react-redux";
 class Search extends React.Component{
 
     state={
-        value:''
+        value:'',
+      
     }
    handlechange = e =>{
        this.setState({
@@ -25,6 +26,11 @@ class Search extends React.Component{
                lon:longitude
            }
        })
+
+       this.setState({
+        value:''
+        })
+      
    }
 
    handleclick = place =>{
@@ -35,6 +41,7 @@ class Search extends React.Component{
            console.log(this.state.value);
        })
        this.handlesubmit()
+      
        
    }
 
@@ -42,8 +49,9 @@ class Search extends React.Component{
         const suggestions = places.filter(place =>place.name.startsWith(this.state.value));
         console.log(suggestions);
         
-        if(this.state.value!=='')
+        if(this.state.value!=='' )
         {
+            
         var inputsuggestions = suggestions.map(place => {
             return(
                 <div className="searchsuggestions" onClick={()=>this.handleclick(place.name)}>

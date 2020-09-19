@@ -50,6 +50,7 @@ class Graph1 extends React.Component{
                             300,30.55
                             350,30.3
                             400,30.9
+                            450 ,35
                             "/>
                             <circle cx="100" cy="33.73" r="2" stroke="#89C3E4" fill="white" stroke-width="1"/>
                             <circle cx="150" cy="32.87" r="2" stroke="#89C3E4" fill="white" stroke-width="1"/>
