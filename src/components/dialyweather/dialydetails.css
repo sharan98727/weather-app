@@ -3,7 +3,13 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    
 }
+
+/* .dialydetails :hover {
+    transform: scale(1.07);
+    border: 2px solid skyblue;
+} */
 
 .maxmin{
     margin-bottom: 5px;

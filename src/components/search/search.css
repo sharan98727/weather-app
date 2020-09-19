@@ -8,9 +8,19 @@
 
 .searchsuggestions {
     display: flex;
-    box-shadow: 0px 5px 4px 1px rgba(0, 0, 0, 0.75);
-    border-radius: 5px;
+    box-shadow: 0 0 0 0.8px rgba(0,0,0,1),0 2px 4px 1px rgba(0,0,0,.18);
+    border-radius: 2px;
+    border:1 px solid gray;
+    height: 45px;
+    cursor: pointer;
 
+}
+
+.suggestiontext{
+    display: flex;
+    align-items: center;
+    margin-left: 12px;
+    /* cursor: pointer; */
 }
 
 
@@ -21,9 +31,3 @@
 }
 
 
-/* .login{
-    display: grid;
-    place-items: center;
-    height: 100vh;
-    
-} */

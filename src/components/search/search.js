@@ -56,8 +56,8 @@ class Search extends React.Component{
             return(
                 <div className="searchsuggestions" onClick={()=>this.handleclick(place.name)}>
                   
-                    <div >{place.name}</div>
-                    <span></span>
+                    <div className="suggestiontext">{place.name}</div>
+                    {/* <span></span> */}
                   
                 </div>
             )
@@ -69,7 +69,8 @@ class Search extends React.Component{
             <form>
                 <input type="text"  value={this.state.value} placeholder="enter your city"
                 onChange={this.handlechange} style={{width:"710px",height:"40px",borderRadius:"7px",
-                marginBottom:"10px",outlineWidth:"none",border:"none", boxShadow:" 0px 5px 20px -8px rgba(0, 0,0,0.75)"}}
+                marginBottom:"10px",outlineWidth:"none",border:"none", boxShadow:" 0px 5px 20px -8px rgba(0, 0,0,0.75)",
+            margin:"0px"}}
                 />
             </form>
             {inputsuggestions}
