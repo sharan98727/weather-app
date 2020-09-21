@@ -1,4 +1,5 @@
 import React from "react";
+import { connect } from "react-redux";
 
 class Graph1 extends React.Component{
 
@@ -8,7 +9,7 @@ class Graph1 extends React.Component{
     }
 
     componentDidMount(){
-        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=22.5726&lon=88.3639&units=metric&
+        fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${this.props.latitude}&lon=${this.props.longitude}&units=metric&
         exclude=minutely&appid=f62e786f62a11ee5d2e5ae43cb6975fa`)
         .then(res=>res.json())
         .then(data=>{
@@ -20,47 +21,86 @@ class Graph1 extends React.Component{
         })
     }
 
+    componentDidUpdate(prevprops){
+        console.log(this.props.latitude);
+        console.log(prevprops.latitude)
+        if(this.props.latitude!==prevprops.latitude)
+        {
+    
+    fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${this.props.latitude}&lon=${this.props.longitude}&units=metric&
+      exclude=minutely&appid=f62e786f62a11ee5d2e5ae43cb6975fa`).then(res => res.json())
+            .then(data => this.setState({
+                hourdata: data.hourly,
+            }, () => {
+                console.log(this.state.hourdata);
+            }))
+    
+        }
+        }
+
     render(){
         let {hourdata} = this.state;
         var currenthour = this.state.date.getHours();
-        let requiredhours = hourdata.slice(currenthour,currenthour+8);
+        console.log(currenthour);
+        let requiredhours = hourdata.slice(1,8);
         // console.log(requiredhours);
-        let graphdata = requiredhours.map((item)=>{
+        let graphdata = requiredhours.map((item, index)=>{
             // console.log(item.temp)
             return(
-                `${new Date(item.dt*1000).getHours()} ${item.temp}`
+             
+                `${index*80},${item.temp}`
+                
+                
             )
-        })
+        });
+        
+        let circle = requiredhours.map((item, index)=>{
+            // console.log(item.temp)
+            return(
+                
+                 <circle cx={index*80} cy={item.temp} r="2" stroke="#89C3E4" fill="white" stroke-width="1" />
+                
+            )
+        });
+        
+            
+       
+
+        let timeStampFooter = requiredhours.map((item, index)=>{
+            // console.log(item.temp)
+            return(
+                <div>
+                    {new Date(item.dt *1000).getHours()}
+
+                </div>
+            )
+        });
+
             var graphxy = graphdata.join(" ");
-            console.log(graphxy);
+            console.log('======>', graphxy);
             
 
             return(
+            <div>
                 <svg viewBox="0 0 500 100" class="chart">
                         <polyline
                             fill="none"
                             stroke="#89C3E4"
                             stroke-width="1"
-                            points="
-                            50,33.73
-                            100,32.87
-                            150,31.57
-                            200,31.06
-                            250,30.76
-                            300,30.55
-                            350,30.3
-                            400,30.9
-                            450 ,35
-                            "/>
-                            <circle cx="100" cy="33.73" r="2" stroke="#89C3E4" fill="white" stroke-width="1"/>
+                            points={graphxy}/>
+                            {circle}
+                            {/* <circle cx="100" cy="33.73" r="2" stroke="#89C3E4" fill="white" stroke-width="1"/>
                             <circle cx="150" cy="32.87" r="2" stroke="#89C3E4" fill="white" stroke-width="1"/>
                             <circle cx="200" cy="31.06" r="2" stroke="#89C3E4" fill="white" stroke-width="1"/>
                             <circle cx="250" cy="30.76" r="2" stroke="#89C3E4" fill="white" stroke-width="1"/>
                             <circle cx="300" cy="30.55" r="2" stroke="#89C3E4" fill="white" stroke-width="1"/>
                             <circle cx="350" cy="30.3" r="2" stroke="#89C3E4" fill="white" stroke-width="1"/>
-                            <circle cx="400" cy="30.9" r="2" stroke="#89C3E4" fill="white" stroke-width="1"/>
+                            <circle cx="400" cy="30.9" r="2" stroke="#89C3E4" fill="white" stroke-width="1"/> */}
                             {/* <circle cx="60" cy="31.57" r="2" stroke="#89C3E4" fill="white" stroke-width="1"/> */}
                         </svg>
+                        <div style={{display:"flex",justifyContent:"space-between"}}>{timeStampFooter}</div>
+                        </div>
+                       
                 // <svg viewBox="0 0 500 100" className="chart">
                 //     <polyline
                 //         fill="none"
@@ -83,11 +123,12 @@ class Graph1 extends React.Component{
       
     }
 
-
-// X50--------------------------------
-// |
-// |
-// |    0   
-// |    
-// |0O         
-export default Graph1;
+const mapStateToProps = state =>{
+    console.log('=========>',state.lat);
+    return{
+        latitude:state.lat,
+        longitude:state.lon,
+    }
+}
+         
+export default connect(mapStateToProps)(Graph1);

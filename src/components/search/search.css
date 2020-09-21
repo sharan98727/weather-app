@@ -16,6 +16,14 @@
 
 }
 
+.weathericon{
+    display: flex;
+    justify-content: flex-end;
+    margin-left: auto;
+    width: "30px";
+    height: "30px";
+}
+
 .suggestiontext{
     display: flex;
     align-items: center;

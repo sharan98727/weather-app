@@ -1,6 +1,8 @@
-.fourthrow{
+.fourthrows{
     
     display: flex;
     flex-direction: column;
-    
+    margin-right: 20px;
+    margin-left: 20px;
+    justify-content: center;
 }

@@ -7,7 +7,9 @@ export const places = [
     "coord": {
         "lon": 78.474442,
         "lat": 17.37528
-        }
+        },
+    "icon": "02d",
+    "description":"few clouds"
     },
     {
         "id": 1261481,
@@ -17,7 +19,9 @@ export const places = [
         "coord": {
             "lon": 77.23114,
             "lat": 28.61282
-        }
+        },
+        "icon": "01d",
+        "description":"clear sky"
     },
     {
         "id": 1277333,
@@ -27,7 +31,9 @@ export const places = [
         "coord": {
             "lon": 77.603287,
             "lat": 12.97623
-        }
+        },
+        "icon": "03d",
+        "description":"cloudy"
     },
 
     {
@@ -38,7 +44,9 @@ export const places = [
         "coord": {
             "lon": 88.36972,
             "lat": 22.569719
-        }
+        },
+        "icon": "50d",
+        "description":"misty"
     },
 
     {
@@ -49,7 +57,9 @@ export const places = [
         "coord": {
             "lon": 80.278473,
             "lat": 13.08784
-        }
+        },
+        "icon": "10d",
+        "description":"rain"
     },
 
     {
@@ -60,7 +70,9 @@ export const places = [
         "coord": {
             "lon": 73.855347,
             "lat": 18.519569
-        }
+        },
+        "icon": "02d",
+        "description":"few clouds"
     },
 
     {
@@ -71,7 +83,9 @@ export const places = [
         "coord": {
             "lon": 76.793297,
             "lat": 30.734301
-        }
+        },
+        "icon": "01d",
+        "description":"clear sky"
     },
     {
         "id": 1264733,
@@ -81,7 +95,9 @@ export const places = [
         "coord": {
             "lon": 80.916664,
             "lat": 26.85
-        }
+        },
+        "icon": "10d",
+        "description":"rain"
     },
     {
         "id": 1275339,
@@ -91,7 +107,9 @@ export const places = [
         "coord": {
             "lon": 72.847939,
             "lat": 19.01441
-        }
+        },
+        "icon": "50d",
+        "description":"mist"
     },
     {
         "id": 1269515,
@@ -101,7 +119,9 @@ export const places = [
         "coord": {
             "lon": 75.816666,
             "lat": 26.916668
-        }
+        },
+        "icon": "04d",
+        "description":"broken clouds"
     },
     {
         "id": 1260086,
@@ -111,7 +131,9 @@ export const places = [
         "coord": {
             "lon": 85.116669,
             "lat": 25.6
-        }
+        },
+        "icon": "11d",
+        "description":"thunderstorm"
     },
     {
         "id": 1279233,
@@ -121,7 +143,9 @@ export const places = [
         "coord": {
             "lon": 72.616669,
             "lat": 23.033333
-        }
+        },
+        "icon": "09d",
+        "description":"shower"
     },
 ]
 

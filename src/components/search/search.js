@@ -7,12 +7,33 @@ class Search extends React.Component{
 
     state={
         value:'',
-      
+        lat:'',
+        lon:'',
+        // citylist:["hyderabad","new Delhi","bengaluru","kolkata","chennai","pune","chandigarh","lucknow",
+        // "mumbai","jaipur","patna","ahmedabad"]  ,
+        // iconlist:{
+
+        //     "hyderabad":'',
+        //     "new Delhi":'',
+        //     "bengaluru":'',
+        //     "kolkata":"",
+        //     "chennai":"",
+        //     "pune":"",
+        //     "chandigarh":"",
+        //     "lucknow":"",
+        //     "mumbai":"",
+        //     "jaipur":"",
+        //     "patna":"",
+        //     "ahmedabad":""
+
+        // }
     }
    handlechange = e =>{
        this.setState({
            value:e.target.value,
-       })       
+       }      
+       )
+
    }
 
    handlesubmit  = e =>{
@@ -46,6 +67,7 @@ class Search extends React.Component{
    }
 
     render(){
+
         const suggestions = places.filter(place =>place.name.startsWith(this.state.value));
         console.log(suggestions);
         
@@ -57,8 +79,9 @@ class Search extends React.Component{
                 <div className="searchsuggestions" onClick={()=>this.handleclick(place.name)}>
                   
                     <div className="suggestiontext">{place.name}</div>
-                    {/* <span></span> */}
-                  
+                    {/* <img src={'https://abc.com/icons' + this.state.temparatures[place.name]}></img> */}
+                    <img className="weathericon" src={`http://openweathermap.org/img/wn/${place.icon}@2x.png`} alt="" />
+                    <span style={{display:"flex",alignItems:"center"}}>{place.description}</span>
                 </div>
             )
         })
